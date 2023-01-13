@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votaciones</title>
-    <style>
-        h2, p {
-            text-align : center;
-        }
-        button {
-            display:block;
-            margin:auto;
-        }
-        body {background-color : lightblue;  margin: 0}
-        h2 { margin-top: 0; height : 40px;background-color : black; color : lightblue; padding-top:10px}
-    </style>
-</head>
-<body>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <h2>Mejor apoyo a la comunidad</h2>
-        <p><input type="radio" name="comunidad" value = "Apex Legends"> Apex Legends </p>
-        <p><input type="radio" name="comunidad" value = "Destiny 2"> Destiny 2 </p>
-        <p><input type="radio" name="comunidad" value = "FINAL FANTASY XIV"> FINAL FANTASY XIV  </p>
-        <p><input type="radio" name="comunidad" value = "Fortnite"> Fortnite </p>
-        <p><input type="radio" name="comunidad" value = "No Mans Sky"> No Man’s Sky </p>
-        <button type="submit">Votar</button>
-    </form>
 
-    <p><a href="votar.php">Volver a la pagina de votaciones</a></p>
     <?php
     session_start();
+
+    include "../vista/adaptacion.html";
 
     $usuario = $juego = $id_us = $id_juego = $id_votacion= "";
     require 'con_BD.php';
@@ -44,8 +16,8 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $_SESSION['usuario'];
-            $juego = $_REQUEST['comunidad'];
-            if($_REQUEST['comunidad'] !="") {
+            $juego = $_REQUEST['adaptacion'];
+            if($_REQUEST['adaptacion'] !="") {
                 try {
                     $sqlUsuario= $cons->query("SELECT id_usuario FROM usuarios WHERE nombre_usuario='$usuario'"); //se obtiene el id del usuario
                     for ($i = 0; $i<$sqlUsuario->num_rows; $i++) {
@@ -68,7 +40,7 @@
                 
                 if($id_us !="" && $id_juego !="") { //se comprueba que los dos id no estan vacios
                    try {
-                        $sqlVot= $cons->query("SELECT id_votacion FROM votaciones WHERE categoria='mejor apoyo a la comunidad' and id_usuario=$id_us"); //se comprueba si el usuario ya ha votado en sa categoria
+                        $sqlVot= $cons->query("SELECT id_votacion FROM votaciones WHERE categoria='mejor adaptacion a cine/serie' and id_usuario=$id_us"); //se comprueba si el usuario ya ha votado en sa categoria
                         for ($b = 0; $b<$sqlVot->num_rows; $b++) {
                             $row = $sqlVot->fetch_object();
                             $id_votacion= $row->id_votacion;
@@ -79,10 +51,11 @@
                     
                     if($id_votacion == "" ){
                         try {
-                            $sql= $cons->query("INSERT INTO votaciones (id_juego, id_usuario, categoria) VALUES ('$id_juego' , '$id_us', 'mejor apoyo a la comunidad')"); //se añade la votacion a la tabla
+                            $sql= $cons->query("INSERT INTO votaciones (id_juego, id_usuario, categoria) VALUES ('$id_juego' , '$id_us', 'mejor adaptacion a cine/serie')"); //se añade la votacion a la tabla
                         } catch (Exception $e) {
                             echo "Se ha producido un error : " . $e->getMessage();
                         }
+                        
                         echo "La votacion se ha realizado correctamente";
                     }else {
                         echo "Ya has votado en esta categoria";
@@ -99,5 +72,4 @@
 
     ?>
     
-</body>
-</html>
+

@@ -13,10 +13,10 @@
 
     if(isset($_SESSION['usuario'])){
         $usuario = $_SESSION['usuario'];
-        include "./vista/index_usuario.html";
+        include "../vista/index_usuario.html";
 
     }else {
-        include "./vista/index_noUsuario.html";;
+        include "../vista/index_noUsuario.html";;
     }
     
     
