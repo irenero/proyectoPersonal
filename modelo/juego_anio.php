@@ -1,39 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votaciones</title>
-    <style>
-        h2, p {
-            text-align : center;
-        }
-        button {
-            display:block;
-            margin:auto;
-        }
-        body {background-color : lightblue;  margin: 0}
-        h2 { margin-top: 0; height : 40px;background-color : black; color : lightblue; padding-top:10px}
-    </style>
-</head>
-<body>
-
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <h2>Juego del año</h2>
-        <p> <input type="radio" name="anio" value = "A Plague Tale: Requiem"> A Plague Tale: Requiem</p>
-        <p> <input type="radio" name="anio" value = "Elden Ring"> Elden Ring</p>
-        <p> <input type="radio" name="anio" value = "God of War: Ragnarok"> God of War Ragnarök</p>
-        <p> <input type="radio" name="anio" value = "Horizon Forbidden West"> Horizon Forbidden West</p>
-        <p> <input type="radio" name="anio" value = "Stray"> Stray</p>
-        <p> <input type="radio" name="anio" value = "Xenoblade Chronicles 3"> Xenoblade Chronicles 3</p>
-        <button type="submit">Votar</button>
-    </form>
-    
-    <p><a href="votar.php">Volver a la pagina de votaciones</a></p>
 
     <?php
     session_start();
+
+    include "../vista/v_juego_anio.html";
 
     $usuario = $juego = $id_us = $id_juego = $id_votacion= "";
     require 'con_BD.php';
@@ -102,5 +71,3 @@
 
     ?>
      
-</body>
-</html>

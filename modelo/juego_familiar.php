@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votaciones</title>
-    <style>
-        h2, p {
-            text-align : center;
-        }
-        button {
-            display:block;
-            margin:auto;
-        }
-        body {background-color : lightblue;  margin: 0}
-        h2 { margin-top: 0; height : 40px;background-color : black; color : lightblue; padding-top:10px}
-    </style>
-</head>
-<body>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <h2>Mejor juego familiar</h2>
-        <p><input type="radio" name="familiar" value = "DNF Duel"> DNF Duel </p>
-        <p><input type="radio" name="familiar" value = "LEGO Star Wars: The Skywalker Saga">LEGO Star Wars: The Skywalker Saga</p>
-        <p><input type="radio" name="familiar" value = "Mario + Rabbids Sparks of Hope"> Mario + Rabbids Sparks of Hope</p>
-        <p><input type="radio" name="familiar" value = "Nintendo Switch Sports"> Nintendo Switch Sports</p>
-        <p><input type="radio" name="familiar" value = "Splatoon 3"> Splatoon 3 </p>
-        <button type="submit">Votar</button>
-    </form>
-
-    <p><a href="votar.php">Volver a la pagina de votaciones</a></p>
     <?php
     session_start();
+    include "../vista/v_juego_familiar.html";
 
     $usuario = $juego = $id_us = $id_juego = $id_votacion= "";
     require 'con_BD.php';
@@ -99,5 +69,3 @@
     ?>
     
 
-</body>
-</html>

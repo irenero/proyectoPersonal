@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votaciones</title>
-    <style>
-        h2, p {
-            text-align : center;
-        }
-        button {
-            display:block;
-            margin:auto;
-        }
-        body {background-color : lightblue;  margin: 0}
-        h2 { margin-top: 0; height : 40px;background-color : black; color : lightblue; padding-top:10px}
-    </style>
-</head>
-<body>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <h2>Juego mas esperado</h2>
-        <p><input type="radio" name="esperado" value = "FINAL FANTASY XVI"> FINAL FANTASY XVI</p>
-        <p><input type="radio" name="esperado" value = "Hogwarts Legacy">Hogwarts Legacy</p>
-        <p><input type="radio" name="esperado" value = "Resident Evil 4"> Resident Evil 4</p>
-        <p><input type="radio" name="esperado" value = "Starfield"> Starfield</p>
-        <p><input type="radio" name="esperado" value = "The Legend of Zelda: Tears of the Kingdo"> The Legend of Zelda: Tears of the Kingdom </p>
-        <button type="submit">Votar</button>
-    </form>
-
-    <p><a href="votar.php">Volver a la pagina de votaciones</a></p>
     <?php
     session_start();
+
+    include "../vista/v_juego_esperado.html";
 
     $usuario = $juego = $id_us = $id_juego = $id_votacion= "";
     require 'con_BD.php';
@@ -99,5 +70,3 @@
     ?>
     
 
-</body>
-</html>

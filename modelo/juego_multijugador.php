@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votaciones</title>
-    <style>
-        h2, p {
-            text-align : center;
-        }
-        button {
-            display:block;
-            margin:auto;
-        }
-        body {background-color : lightblue;  margin: 0}
-        h2 { margin-top: 0; height : 40px;background-color : black; color : lightblue; padding-top:10px}
-    </style>
-</head>
-<body>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <h2>Mejor juego multijugador</h2>
-        <p><input type="radio" name="multijugador" value = "Call of Duty: Modern Warfare II"> Call of Duty: Modern Warfare II </p>
-        <p><input type="radio" name="multijugador" value = "MultiVersus">MultiVersus</p>
-        <p><input type="radio" name="multijugador" value = "Overwatch 2"> Overwatch 2</p>
-        <p><input type="radio" name="multijugador" value = "Splatoon 3"> Splatoon 3</p>
-        <p><input type="radio" name="multijugador" value = "Teenage Mutant Ninja Turtles: Shredders Revenge"> Teenage Mutant Ninja Turtles: Shredder’s Revenge </p>
-        <button type="submit">Votar</button>
-    </form>
-
-    <p><a href="votar.php">Volver a la pagina de votaciones</a></p>
     <?php
     session_start();
+
+    include "../vista/v_juego_multijugador.html";
 
     $usuario = $juego = $id_us = $id_juego = $id_votacion= "";
     require 'con_BD.php';
@@ -109,5 +80,3 @@
 
     <p><a href="votar.php">Volver a la pagina de votaciones</a></p>
    
-</body>
-</html>

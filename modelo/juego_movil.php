@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votaciones</title>
-    <style>
-        h2, p {
-            text-align : center;
-        }
-        button {
-            display:block;
-            margin:auto;
-        }
-        body {background-color : lightblue;  margin: 0}
-        h2 { margin-top: 0; height : 40px;background-color : black; color : lightblue; padding-top:10px}
-    </style>
-</head>
-<body>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <h2>Mejor juego para móviles</h2>
-        <p><input type="radio" name="movil" value = "Apex Legends Mobile"> Apex Legends Mobile  </p>
-        <p><input type="radio" name="movil" value = "Diablo Immortal"> Diablo Immortal  </p>
-        <p><input type="radio" name="movil" value = "Genshin Impact"> Genshin Impact </p>
-        <p><input type="radio" name="movil" value = "MARVEL SNAP"> MARVEL SNAP </p>
-        <p><input type="radio" name="movil" value = "Tower of Fantasy"> Tower of Fantasy </p>
-        <button type="submit">Votar</button>
-    </form>
-
-    <p><a href="votar.php">Volver a la pagina de votaciones</a></p>
     <?php
     session_start();
+
+    include "../vista/v_juego_movil.html";
 
     $usuario = $juego = $id_us = $id_juego = $id_votacion= "";
     require 'con_BD.php';
@@ -98,5 +69,3 @@
 
     ?>
     
-</body>
-</html>

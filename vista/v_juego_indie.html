@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votaciones</title>
+    <style>
+        h2, p {
+            text-align : center;
+        }
+        button {
+            display:block;
+            margin:auto;
+        }
+        body {background-color : lightblue;  margin: 0}
+        h2 { margin-top: 0; height : 40px;background-color : black; color : lightblue; padding-top:10px}
+    </style>
+</head>
+<body>
+
+    <form action="../modelo/juego_indie.php" method="post">
+        <h2>Mejor Indie</h2>
+        <p><input type="radio" name="indie" value = "Cult of the Lamb"> Cult of the Lamb </p>
+        <p><input type="radio" name="indie" value = "Neon White"> Neon White</p>
+        <p><input type="radio" name="indie" value = "Sifu"> Sifu </p>
+        <p><input type="radio" name="indie" value = "Stray"> Stray</p>
+        <p><input type="radio" name="indie" value = "TUNIC"> TUNIC </p>
+        <button type="submit">Votar</button>
+    </form>
+
+    <p><a href="votar.php">Volver a la pagina de votaciones</a></p>
+
+</body>
+</html>

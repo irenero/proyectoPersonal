@@ -2,7 +2,7 @@
     <?php
     session_start();
 
-    include "../vista/v_accesibilidad.html";
+    include "../vista/v_juego_arte.html";
 
     $usuario = $juego = $id_us = $id_juego = $id_votacion= "";
     require 'con_BD.php';
@@ -12,10 +12,11 @@
     if($error != null) {
         echo "<p>Error $error</p>";
     }else {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") { //cuando se pulsa el boton
-            $usuario = $_SESSION['usuario']; //se guarda la variable de la sesion
-            $juego = $_REQUEST['accesibilidad']; //se guarda la opcion seleccionada
-            if($_REQUEST['accesibilidad'] !="") { //si la opcion no esta vacia
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $usuario = $_SESSION['usuario'];
+            $juego = $_REQUEST['arte'];
+            if($_REQUEST['arte'] !="") {
                 try {
                     $sqlUsuario= $cons->query("SELECT id_usuario FROM usuarios WHERE nombre_usuario='$usuario'"); //se obtiene el id del usuario
                     for ($i = 0; $i<$sqlUsuario->num_rows; $i++) {
@@ -38,7 +39,7 @@
                 
                 if($id_us !="" && $id_juego !="") { //se comprueba que los dos id no estan vacios
                    try {
-                        $sqlVot= $cons->query("SELECT id_votacion FROM votaciones WHERE categoria='mejor innovacion en accesibilidad' and id_usuario=$id_us"); //se comprueba si el usuario ya ha votado en sa categoria
+                        $sqlVot= $cons->query("SELECT id_votacion FROM votaciones WHERE categoria='mejor arte' and id_usuario=$id_us"); //se comprueba si el usuario ya ha votado en sa categoria
                         for ($b = 0; $b<$sqlVot->num_rows; $b++) {
                             $row = $sqlVot->fetch_object();
                             $id_votacion= $row->id_votacion;
@@ -49,7 +50,7 @@
                     
                     if($id_votacion == "" ){
                         try {
-                            $sql= $cons->query("INSERT INTO votaciones (id_juego, id_usuario, categoria) VALUES ('$id_juego' , '$id_us', 'mejor innovacion en accesibilidad')"); //se añade la votacion a la tabla
+                            $sql= $cons->query("INSERT INTO votaciones (id_juego, id_usuario, categoria) VALUES ('$id_juego' , '$id_us', 'mejor arte')"); //se añade la votacion a la tabla
                         } catch (Exception $e) {
                             echo "Se ha producido un error : " . $e->getMessage();
                         }
@@ -68,3 +69,5 @@
     }
 
     ?>
+    
+

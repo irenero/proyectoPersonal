@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votaciones</title>
+    <style>
+        h2, p {
+            text-align : center;
+        }
+        button {
+            display:block;
+            margin:auto;
+        }
+        body {background-color : lightblue;  margin: 0}
+        h2 { margin-top: 0; height : 40px;background-color : black; color : lightblue; padding-top:10px}
+    </style>
+</head>
+<body>
+
+    <form action="../modelo/juego_lucha.php" method="post">
+        <h2>Mejor juego de lucha</h2>
+        <p><input type="radio" name="lucha" value = "DNF Duel"> DNF Duel </p>
+        <p><input type="radio" name="lucha" value = "JoJos Bizarre Adventure: All Star Battl">JoJos Bizarre Adventure: All Star Battle R</p>
+        <p><input type="radio" name="lucha" value = "The King of Fighters XV"> The King of Fighters XV </p>
+        <p><input type="radio" name="lucha" value = "MultiVersus"> MultiVersus</p>
+        <p><input type="radio" name="lucha" value = "Sifu"> Sifu</p>
+        <button type="submit">Votar</button>
+    </form>
+
+    <p><a href="votar.php">Volver a la pagina de votaciones</a></p>
+
+</body>
+</html>
