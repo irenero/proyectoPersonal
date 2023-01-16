@@ -13,15 +13,12 @@
 
     if(isset($_SESSION['usuario'])){
         $usuario = $_SESSION['usuario'];
-        include "../vista/index_usuario.html";
+        include "../modelo/index_usuario.php";
 
     }else {
         include "../vista/index_noUsuario.html";;
     }
     
-    //eliminar los juego_ en el modelo y unificarlos en 1 y 
-    //crear la conexion de v_juego_ y de la consulta a los juegos unificadados
-    //en modelo mediante nuevos archivos en el controlador
     ?>
    
 </body>

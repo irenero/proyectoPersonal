@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        form{
+            width:400px;
+            padding:16px;
+            border-radius:10px;
+            margin:auto;
+            margin-top: 20%;
+            background-color:#ccc;
+            padding : 40px;
+        }
+        label {
+            display:block;
+            margin-top:10px;
+        }
+        body {
+            background-color:lightblue;
+        }
+        p {
+            text-align: center;
+            margin-top: 30px;
+        }
+        [type=submit] {
+            display:block;
+            margin:auto;
+            margin-top:15px;
+        }
+    </style>
+</head>
+<body>
+    <form action="../modelo/m_registro.php" method="post">
+        <label> Nombre usuario :  <input type="text" name="nombre" id="nombre">  </label>
+        <label> Contraseña :  <input type="password" name="passw" id="passw">  </label>
+        <label> Repetir contraseña :  <input type="password" name="passw2" id="passw2"></label>
+        <label> Correo electronico :  <input type="email" name="email" id="email"> </label>
+        <input type="submit" value="Registrarse">
+    </form>
+    <p><a href="../controlador/index.php">Volver a la pagina principal</a></p>
+
+</body>
+</html>

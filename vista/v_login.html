@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        form{
+            width:300px;
+            padding:16px;
+            border-radius:10px;
+            margin:auto;
+            margin-top: 20%;
+            background-color:#ccc;
+            padding : 40px;
+        }
+        label {
+            display:block;
+            margin-top:10px;
+        }
+        body {
+            background-color:lightblue;
+        }
+        p {
+            text-align: center;
+            margin-top: 30px;
+        }
+        [type=submit] {
+            display:block;
+            margin:auto;
+            margin-top:15px;
+        }
+    </style>
+</head>
+<body>
+    <form action="../modelo/m_login.php" method="post">
+    <label> Nombre usuario :  <input type="text" name="nombre" id="nombre"> </label>
+    <label> Contraseña :  <input type="password" name="passw" id="passw"> </label>
+    <input type="submit" value="Iniciar sesion">
+</form>
+
+<p><a href="../controlador/index.php">Volver a la pagina principal</a></p>
+</body>
+</html>

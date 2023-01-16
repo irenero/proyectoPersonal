@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        form{
-            width:300px;
-            padding:16px;
-            border-radius:10px;
-            margin:auto;
-            margin-top: 20%;
-            background-color:#ccc;
-            padding : 40px;
-        }
-        label {
-            display:block;
-            margin-top:10px;
-        }
-        body {
-            background-color:lightblue;
-        }
-        p {
-            text-align: center;
-            margin-top: 30px;
-        }
-        [type=submit] {
-            display:block;
-            margin:auto;
-            margin-top:15px;
-        }
-    </style>
-</head>
-<body>
+
     <?php
     session_start();
     $_SESSION['usuario'] = "";
@@ -58,12 +23,12 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(empty($_POST["nombre"])) {//si el campo esta vacio
-                $errNombre="Error, se debe introducir un valor en el nombre";
+                echo "Error, se debe introducir un valor en el nombre";
             }else {
                 $nombre=verificar($_POST["nombre"]);
             }
             if(empty($_POST["passw"])) {//si el campo esta vacio
-                $errPass="Error, se debe introducir un valor en el nombre";
+                echo "Error, se debe introducir un valor en el nombre";
             }else {
                 $passw=verificar($_POST["passw"]);
             }
@@ -76,12 +41,12 @@
                     if (($row->nombre_usuario == $nombre) ) { //se comprueba si existe el nombre
                         if (($row->password == $passw)) { //se comprueba si la contraseña es correcta para ese usuario
                             $_SESSION['usuario'] = $nombre; //se guardan los valores en $_SESSION
-                            header("Location:index.php");
+                            header("Location:../controlador/index.php");
                         }else {
-                            $errPass = "Error, contraseña incorrecta";
+                            echo "Error, contraseña incorrecta";
                         }   
                     }else {
-                        $errPass = "Error, usuario incorrecta";
+                        echo "Error, usuario incorrecta";
                     }
                 }
             }
@@ -91,12 +56,3 @@
 
     ?>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <label> Nombre usuario :  <input type="text" name="nombre" id="nombre"> <?php echo $errNombre ?> </label>
-        <label> Contraseña :  <input type="password" name="passw" id="passw"> <?php echo $errPass ?> </label>
-        <input type="submit" value="Iniciar sesion">
-    </form>
-
-    <p><a href="index.php">Volver a la pagina principal</a></p>
-</body>
-</html>
