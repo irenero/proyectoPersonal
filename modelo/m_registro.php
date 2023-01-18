@@ -45,7 +45,12 @@
             if($passw == $passw2) { //comprobar que las contraseñas son iguales
                 if($nombre != "" && $passw != "" && $email != "") { //si las variables contiene valor
                     //se introducen los datos en la base de datos
-                    $sql= $cons->query("INSERT INTO usuarios (nombre_usuario, password, correo) VALUES ('$nombre', '$passw', '$email')");
+                    include "../modelo/c_usuarios.php"; //se incluye el php con la clase usuario
+                    $newUsuario = new Usuario($nombre, $passw, $email); //se crea un nuevo usuario con los valores introducidos
+                    $usuario= $newUsuario->getNombre();
+                    $password =  $newUsuario->getPassword();
+                    $correo = $newUsuario->getCorreo();
+                    $sql= $cons->query("INSERT INTO usuarios (nombre_usuario, password, correo) VALUES ('$usuario', '$password', '$correo')");
                     if ($cons->affected_rows > 0) { //si hay mas de 0 linas afectadas se ha introducido correctamente
                         echo("<h2> Te has registrado correctamente </h2>"); //se muestra un mensaje
                         echo '<a href="../controlador/index.php">Pagina de inicio</a>';

@@ -23,14 +23,12 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(empty($_POST["nombre"])) {//si el campo esta vacio
-                echo "<p>Error, se debe introducir un valor en el nombre</p>";
-                echo '<a href="../controlador/login.php">Volver a intentarlo</a>';
+                echo "Error, se debe introducir un valor en el nombre";
             }else {
                 $nombre=verificar($_POST["nombre"]);
             }
             if(empty($_POST["passw"])) {//si el campo esta vacio
-                echo "<p>Error, se debe introducir un valor en la contraseña</p>";
-                echo '<a href="../controlador/login.php">Volver a intentarlo</a>';
+                echo "Error, se debe introducir un valor en el nombre";
             }else {
                 $passw=verificar($_POST["passw"]);
             }
@@ -45,12 +43,10 @@
                             $_SESSION['usuario'] = $nombre; //se guardan los valores en $_SESSION
                             header("Location:../controlador/index.php");
                         }else {
-                            echo "<p>Error, contraseña incorrecta</p>";
-                            echo '<a href="../controlador/login.php">Volver a intentarlo</a>';
+                            echo "Error, contraseña incorrecta";
                         }   
                     }else {
-                        echo "<p>Error, usuario incorrecto</p>";
-                        echo '<a href="../controlador/login.php">Volver a intentarlo</a>';
+                        echo "Error, usuario incorrecta";
                     }
                 }
             }
