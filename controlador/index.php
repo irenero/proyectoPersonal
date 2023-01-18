@@ -9,16 +9,7 @@
 </head>
 <body>
     <?php
-    session_start();
-
-    if(isset($_SESSION['usuario'])){
-        $usuario = $_SESSION['usuario'];
         include "../modelo/index_usuario.php";
-
-    }else {
-        include "../vista/index_noUsuario.html";;
-    }
-    
     ?>
    
 </body>

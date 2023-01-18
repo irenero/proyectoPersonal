@@ -120,7 +120,7 @@
             
             if($id_us !="" && $id_juego !="") { //se comprueba que los dos id no estan vacios
                 try {
-                    $sqlVot= $cons->query("SELECT id_votacion FROM votaciones WHERE categoria=$categoria and id_usuario=$id_us"); //se comprueba si el usuario ya ha votado en sa categoria
+                    $sqlVot= $cons->query("SELECT id_votacion FROM votaciones WHERE categoria=$categoria and id_usuario=$id_us"); //se comprueba si el usuario ya ha votado en esa categoria
                     for ($b = 0; $b<$sqlVot->num_rows; $b++) {
                         $row = $sqlVot->fetch_object();
                         $id_votacion= $row->id_votacion;

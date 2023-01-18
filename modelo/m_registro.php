@@ -1,7 +1,6 @@
 <?php 
     session_start();
     $nombre = $passw = $passw2 = $email = "";
-    $errNombre = $errPass = $errEmail = "";
 
     require 'con_BD.php';
     $cons = new mysqli();
@@ -21,12 +20,14 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(empty($_POST["nombre"])) {//si el campo esta vacio
-                echo "Error, se debe introducir un valor en el nombre";
+                echo "<p>Error, se debe introducir un valor en el nombre</p>";
+                echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
             }else {
                 $nombre=verificar($_POST["nombre"]);
             }
             if(empty($_POST["passw"])) {//si el campo esta vacio
-                echo "Error, se debe introducir un valor en el nombre";
+                echo "<p>Error, se debe introducir un valor en la contraseña</p>";
+                echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
             }else {
                 $passw=verificar($_POST["passw"]);
             }
@@ -35,7 +36,8 @@
                 $passw2=verificar($_POST["passw2"]);
             }
             if(empty($_POST["email"])) {//si el campo esta vacio
-                echo "Error, se debe introducir un valor en el correo electronico";
+                echo "<p>Error, se debe introducir un valor en el correo electronico</p>";
+                echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
             }else {
                 $email=verificar($_POST["email"]);
             }  
@@ -46,12 +48,15 @@
                     $sql= $cons->query("INSERT INTO usuarios (nombre_usuario, password, correo) VALUES ('$nombre', '$passw', '$email')");
                     if ($cons->affected_rows > 0) { //si hay mas de 0 linas afectadas se ha introducido correctamente
                         echo("<h2> Te has registrado correctamente </h2>"); //se muestra un mensaje
+                        echo '<a href="../controlador/index.php">Pagina de inicio</a>';
                     } else {
                         echo("<h2> Ha ocurrido un error al registrarte, ya hay un usuario con ese nombre, porfavor elige otro </h2>");
+                        echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
                     }
                 }
             }else {
-                $errPass = "Error, las contraseñas deben ser iguales";
+                $errPass = "<p>Error, las contraseñas deben ser iguales</p>";
+                echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
             }                 
         }
     }

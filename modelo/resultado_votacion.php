@@ -151,6 +151,6 @@
     }
     ?>
 
-<p><a href="index.php">Volver a la pagina principal</a></p>
+<p><a href="../controlador/index.php">Volver a la pagina principal</a></p>
 </body>
 </html>
