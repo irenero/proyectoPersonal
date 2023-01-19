@@ -26,22 +26,22 @@
     <a href="../controlador/juego_anio.php"> <img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Juego-del-Ano-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x551.jpg" alt="juego del año"></a>
 
     <h2>Mejor narrativa</h2>
-    <a href="../controlador/mejor_narrativa.php"> <img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-narrativa-The-Game-Awards-2022-www.culturageek.com_.ar_.jpg" alt="juego narrativa"></a>
+    <a href="../controlador/juego_narrativa.php"> <img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-narrativa-The-Game-Awards-2022-www.culturageek.com_.ar_.jpg" alt="juego narrativa"></a>
 
     <h2>Mejor direccion de arte</h2>
-    <a href="../controlador/mejor_arte.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-direccion-de-arte-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x539.jpg" alt=""></a>
+    <a href="../controlador/juego_arte.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-direccion-de-arte-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x539.jpg" alt=""></a>
 
     <h2>Mejor juego de impacto</h2>
-    <a href="../controlador/mejor_impacto.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Juego-de-impacto-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x569.jpg" alt=""></a>
+    <a href="../controlador/juego_impacto.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Juego-de-impacto-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x569.jpg" alt=""></a>
     
     <h2>Mejores juegos en constante evolución</h2>
     <a href="../controlador/juego_evolucion.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-juego-en-curso-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x530.jpg" alt=""></a>
 
     <h2>Mejor Indie</h2>
-    <a href="../controlador/mejor_indie.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-juego-indie-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x529.jpg" alt=""></a>
+    <a href="../controlador/juego_indie.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-juego-indie-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x529.jpg" alt=""></a>
 
     <h2>Mejor apoyo a la comunidad</h2>
-    <a href="../controlador/apoyo_comunidad.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-comunidad-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x520.jpg" alt=""></a>
+    <a href="../controlador/juego_apoyo_comunidad.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-comunidad-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x520.jpg" alt=""></a>
 
     <h2>Mejor juego para móviles</h2>
     <a href="../controlador/juego_movil.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-juego-mobile-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x525.jpg" alt=""></a>
@@ -77,10 +77,10 @@
     <a href="../controlador/juego_esperado.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Juego-mas-esperado-The-Game-Awards-2022-www.culturageek.com_.ar_-1400x500.jpg" alt=""></a>
 
     <h2>Mejor adaptacion a cine/serie</h2>
-    <a href="../controlador/adaptacion.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-adaptacion-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x543.jpg" alt=""></a>
+    <a href="../controlador/juego_adaptacion.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-adaptacion-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x543.jpg" alt=""></a>
 
     <h2>Innovación en accesibilidad</h2>
-    <a href="../controlador/accesibilidad.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-INNOVATION-IN-ACCESSIBILITY-The-Game-Awards-2022-www.culturageek.com_.ar_-1400x500.jpg" alt=""></a>
+    <a href="../controlador/juego_accesibilidad.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-INNOVATION-IN-ACCESSIBILITY-The-Game-Awards-2022-www.culturageek.com_.ar_-1400x500.jpg" alt=""></a>
 
     <h2>Mejor juego de esports</h2>
     <a href="../controlador/juego_esports.php"><img src="https://culturageek.com.ar/wp-content/uploads/2022/11/Mejor-juego-de-esports-The-Game-Awards-2022-www.culturageek.com_.ar_-1536x520.jpg" alt=""></a>

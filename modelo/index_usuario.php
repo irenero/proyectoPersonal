@@ -66,13 +66,13 @@
     <?php
     session_start();
 
-    if(isset($_SESSION['usuario']) && $_SESSION['usuario']=!"1"){
+    if(isset($_SESSION['usuario'])){
         $usuario = $_SESSION['usuario'];
         echo '<header> <a href="../modelo/cerrar_sesion.php">Cerrar sesion</a></header>
             <img src="https://top-mmo.fr/wp-content/uploads/2022/08/The-Game-Awards.jpg" alt="imagen the game awads">
             <h1>Nominados a The Game Awards 2022 </h1>
             <h2 id="votar">' . $usuario. ', vota ya a tu favorito!</h2>
-            <a href="votar.php"><img src="https://areajugones.sport.es/wp-content/uploads/2022/11/vota-the-game-awards-2022-1080x609.jpg" alt="votar juego"></a>
+            <a href="../modelo/votar.php"><img src="https://areajugones.sport.es/wp-content/uploads/2022/11/vota-the-game-awards-2022-1080x609.jpg" alt="votar juego"></a>
         ';
 
     }else {

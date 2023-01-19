@@ -1,6 +1,4 @@
 <?php
-//session_start();   
-//$_SESSION['error'] = $_SESSION['nombErr'] = $_SESSION['passErr'] = $_SESSION['emailErr'] = $_SESSION['mensajeRegistro'] = $_SESSION['inicio'] = $_SESSION['mensajeErr'] = $_SESSION['errPass'] ="";
     include "../vista/v_registro.html";
     include "../modelo/m_registro.php";
     
