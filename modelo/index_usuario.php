@@ -66,7 +66,7 @@
     <?php
     session_start();
 
-    if(isset($_SESSION['usuario'])){
+    if(isset($_SESSION['usuario']) && $_SESSION['usuario']=!"1"){
         $usuario = $_SESSION['usuario'];
         echo '<header> <a href="../modelo/cerrar_sesion.php">Cerrar sesion</a></header>
             <img src="https://top-mmo.fr/wp-content/uploads/2022/08/The-Game-Awards.jpg" alt="imagen the game awads">

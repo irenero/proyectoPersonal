@@ -1,13 +1,14 @@
 <?php 
     session_start();
     $nombre = $passw = $passw2 = $email = "";
+    //$_SESSION['error'] = $_SESSION['nombErr'] = $_SESSION['passErr'] = $_SESSION['emailErr'] = $_SESSION['mensajeRegistro'] = $_SESSION['inicio'] = $_SESSION['mensajeErr'] = $_SESSION['errPass'] ="";
 
     require 'con_BD.php';
     $cons = new mysqli();
     $cons->connect($host, $user, $pass, $bd);
     $error = $cons->connect_error;
     if($error != null) {
-        echo "<p>Error $error</p>";
+        $_SESSION['error'] = "<p>Error $error</p>";
     }else {
 
         //se verifican los datos introducidos
@@ -20,14 +21,12 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(empty($_POST["nombre"])) {//si el campo esta vacio
-                echo "<p>Error, se debe introducir un valor en el nombre</p>";
-                echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
+                $_SESSION['nombErr'] = "<p>Error, se debe introducir un valor en el nombre</p>";
             }else {
                 $nombre=verificar($_POST["nombre"]);
             }
             if(empty($_POST["passw"])) {//si el campo esta vacio
-                echo "<p>Error, se debe introducir un valor en la contraseña</p>";
-                echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
+                $_SESSION['passErr'] = "<p>Error, se debe introducir un valor en la contraseña</p>";
             }else {
                 $passw=verificar($_POST["passw"]);
             }
@@ -36,8 +35,7 @@
                 $passw2=verificar($_POST["passw2"]);
             }
             if(empty($_POST["email"])) {//si el campo esta vacio
-                echo "<p>Error, se debe introducir un valor en el correo electronico</p>";
-                echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
+                $_SESSION['emailErr'] = "<p>Error, se debe introducir un valor en el correo electronico</p>";
             }else {
                 $email=verificar($_POST["email"]);
             }  
@@ -52,18 +50,20 @@
                     $correo = $newUsuario->getCorreo();
                     $sql= $cons->query("INSERT INTO usuarios (nombre_usuario, password, correo) VALUES ('$usuario', '$password', '$correo')");
                     if ($cons->affected_rows > 0) { //si hay mas de 0 linas afectadas se ha introducido correctamente
-                        echo("<h2> Te has registrado correctamente </h2>"); //se muestra un mensaje
-                        echo '<a href="../controlador/index.php">Pagina de inicio</a>';
+                        $_SESSION['mensajeRegistro'] = "<h2> Te has registrado correctamente </h2>"; //se muestra un mensaje
+                        $_SESSION['inicio'] = '<a href="../controlador/index.php">Pagina de inicio</a>';
                     } else {
-                        echo("<h2> Ha ocurrido un error al registrarte, ya hay un usuario con ese nombre, porfavor elige otro </h2>");
-                        echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
+                        $_SESSION['mensajeErr'] = "<h2> Ha ocurrido un error al registrarte, ya hay un usuario con ese nombre, porfavor elige otro </h2>";
                     }
                 }
             }else {
-                $errPass = "<p>Error, las contraseñas deben ser iguales</p>";
-                echo '<a href="../controlador/registro.php">Volver a intentarlo</a>';
-            }                 
+                $_SESSION['errPass'] = "<p>Error, las contraseñas deben ser iguales</p>";
+            }
+            header("Location:../controlador/registro.php");                 
         }
     }
+
+    
+
     ?>
 
