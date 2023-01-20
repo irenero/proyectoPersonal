@@ -2,6 +2,7 @@
     include "../vista/v_login.html";
     include "../modelo/m_login.php";
 
+    //se compueba si las variables de los errores continen valor y si es asi se muestran
     if(isset($_SESSION['nombreErr'])){
         echo $_SESSION['nombreErr'];
     }
