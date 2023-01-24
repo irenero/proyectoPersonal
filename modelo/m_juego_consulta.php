@@ -2,18 +2,9 @@
     session_start();
     $usuario = $juego = $id_us = $id_juego = $id_votacion = $categoria = $url = "";
     //conexion copn la base de datos
-    require 'con_BD.php';
-    $cons = new mysqli();
-    $cons->connect($host, $user, $pass, $bd);
-    $error = $cons->connect_error;
-    if($error != null) {
-        echo "<p>Error $error</p>";
-    }else {
+    
         if ($_SERVER["REQUEST_METHOD"] == "POST") { //si se envian datos mediante post
             $usuario = $_SESSION['usuario']; //se guarda la variable de sesion de usuario en la variable usuario
-
-            
-            echo $usuario;
 
            //se modifican las variables dependiendo del tipo de juego/votacion y se guardan las opciones seleccionadas en variables
             if(isset($_REQUEST['accesibilidad'])) {
@@ -124,36 +115,41 @@
 
             //se ejecuta siempre
             try {
-                $sqlUsuario= $cons->query("SELECT id_usuario FROM usuarios WHERE nombre_usuario='$usuario'"); //se obtiene el id del usuario
-                for ($i = 0; $i<$sqlUsuario->num_rows; $i++) {
-                    $row = $sqlUsuario->fetch_object();
-                    $id_us = $row->id_usuario;
-                }
+                //se obtiene el id del usuario
+                include "../modelo/c_usuarios.php"; //se incluye el php con la clase usuario
+                $newUser = new Usuario($usuario, "", "");
+                $id_us = $newUser->idUsuario();
             } catch (Exception $e) {
                 echo "Se ha producido un error : " . $e->getMessage();
             }
             
             try {
-                $sqlJuego= $cons->query("SELECT id FROM juegos where nombre='$juego'"); //se obtiene el id del juego
-                for ($a = 0; $a<$sqlJuego->num_rows; $a++) {
-                    $row = $sqlJuego->fetch_object();
-                    $id_juego = $row->id;
-                }
+                //se obtiene el id del juego
+                include "../modelo/c_juego.php"; //se incluye el php con la clase jugo
+                $newJuego = new Juego("", $juego);
+                $id_juego = $newJuego->consultarId();
             } catch (Exception $e) {
                 echo "Se ha producido un error : " . $e->getMessage();
             }
             
             if($id_us !="" && $id_juego !="") { //se comprueba que existe el usuario y el juego
                 try {
-                    $sqlVot= $cons->query("SELECT id_votacion FROM votaciones WHERE categoria='$categoria' and id_usuario=$id_us"); //se comprueba si el usuario ya ha votado en esa categoria
+                    //se comprueba si el usuario ya ha votado en esa categoria
+                    include "../modelo/c_votacion.php";
+                    $newVotacion = new Votacion($id_votacion, $id_juego, $id_us, $categoria); //se crea una nueva votacion
+                    $rowsId = $newVotacion->consultarId();
                     
-                    if($sqlVot->num_rows > 0) { //si existe ya una votacion de ese usuario en esa categoria
+                    if( $rowsId > 0) { //si existe ya una votacion de ese usuario en esa categoria
                         $_SESSION['votacionRepetida'] = "<p>Ya has votado en esta categoria</p>";
                         $_SESSION['votacionCorrecta'] = "";
                     }else {
                         try {
-                            $sql= $cons->query("INSERT INTO votaciones (id_juego, id_usuario, categoria) VALUES ('$id_juego' , '$id_us', '$categoria')"); //se añade la votacion a la tabla
-                            $_SESSION['votacionCorrecta'] = "<p>La votacion se ha realizado correctamente</p>";
+                            //se añade la votacion a la tabla
+                            $rowsAdd = $newVotacion->addVotacion();
+                            if($rowsAdd > 0) {
+                                $_SESSION['votacionCorrecta'] = "<p>La votacion se ha realizado correctamente</p>";
+                            }
+                            
                         } catch (Exception $e) {
                             echo "Se ha producido un error : " . $e->getMessage();
                         }
@@ -168,7 +164,7 @@
             }
             header("Location:../controlador/".$url); 
         }
-    }
+    
 
 ?>
     

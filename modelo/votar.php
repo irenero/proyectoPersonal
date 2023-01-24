@@ -16,8 +16,6 @@
     <?php
     session_start();
 
-
-
     ?>
 
     <h1>VOTACIONES</h1>
