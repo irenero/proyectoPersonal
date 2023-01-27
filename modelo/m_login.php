@@ -1,5 +1,10 @@
-
-    <?php
+<?php
+/**
+ * archivo m_login el cual se encarga de recibir los datos  de nombre y contraseña del formulario de login
+ * y se comprueba mediante la clase usuario si ese usuario con los datos introducidos existe en la base de datos y
+ * si es asi se le redirige a la pagina principal con su usuario, sino existe o los datos son incorrectos 
+ * se informara al usuario mediante mensajes
+ */
 
     session_start();
 
@@ -60,5 +65,5 @@
     
     }
 
-    ?>
+?>
 

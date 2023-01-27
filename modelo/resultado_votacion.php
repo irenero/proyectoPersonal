@@ -15,11 +15,15 @@
     <h1>Juegos mas votados!!</h1>
 
     <?php
+    /**
+     * documento resultado_votacion en el cual se muestran los resultados de las votaciones de los usuarios en las distintas 
+     * categorias de juegos
+     */
 
     session_start();
 
     $usuario = $juego = $id_us = $id_juego = $id_votacion= "";
-    require 'con_BD.php';
+    require 'd_acceso.php';
     $cons = new mysqli();
     $cons->connect($host, $user, $pass, $bd);
     $error = $cons->connect_error;
@@ -113,6 +117,15 @@
 
     }
 
+    /**
+     * la funcion consulta recibe la categoria y la conexion para acceder a la base de datos y obtener el nombre del juego y 
+     * la cantidad de votaciones que ha recibido de cada categoria
+     * dependiendo del resultado de la consulta, si la categoria no ha recibido ninguna votacion, si solo se ha realizado una votacion,
+     * si se han realizado varias votaciones, se mostrara un mensaje u otro
+     * 
+     * @param categoria categoria del juego del que se va a realiza la cosulta
+     * @param cons conexion a la base de datos
+     */
     function consulta($categoria, $cons) {
         $consulta= $cons->query("SELECT juegos.nombre, COUNT(*) n_votaciones FROM votaciones, juegos WHERE juegos.id = votaciones.id_juego and votaciones.categoria='$categoria' GROUP BY votaciones.id_juego");
         $result=[];

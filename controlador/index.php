@@ -9,7 +9,13 @@
 </head>
 <body>
     <?php
-        include "../modelo/index_usuario.php";
+    /**
+     * archivo index
+     * 
+     * archivo en el que se incluye el archivo index_usuario que contiene el aspecto que mostara la
+     * pagina si el usuario estra registrado o si no lo esta
+     */
+        include_once "../modelo/index_usuario.php";
     ?>
    
 </body>

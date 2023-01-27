@@ -1,8 +1,17 @@
 <?php
+/**
+ * archivo que unifica la vista y el modelo del registro
+ * 
+ * primero se incluye el html y despues el modelo que se conecta a la base de datos cuando el usuario
+ * introduce los datos para registrarse y se añade ese usuario
+ */
     include "../vista/v_registro.html";
     include "../modelo/m_registro.php";
     
-    //se compueba si las variables de los errores continen valor y si es asi se muestran
+    /**
+     * se recoge en una variable de sesion los mensajes que se generan en el modelo para mostarlos en la vista,
+     * primero se comprueba si la variable existe y no es nula y si es asi se muestra en el html
+     */
     if(isset($_SESSION['error'])){
         echo $_SESSION['error'];
     }

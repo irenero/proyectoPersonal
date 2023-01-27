@@ -1,7 +1,12 @@
 <?php
+/**
+ * archivo m_juego_consulta el cual se encarga de recibir los datos de los formularios de votaciones
+ * dependiendo de la pagina de categoria de votacion de los juegos se guardan distintos datos en 
+ * las variables juego, categoria y url para posteriormente invocar las clases y los metodos necesarios 
+ * para guardar la votacion a la base de datos
+ */
     session_start();
     $usuario = $juego = $id_us = $id_juego = $id_votacion = $categoria = $url = "";
-    //conexion copn la base de datos
     
         if ($_SERVER["REQUEST_METHOD"] == "POST") { //si se envian datos mediante post
             $usuario = $_SESSION['usuario']; //se guarda la variable de sesion de usuario en la variable usuario
@@ -133,6 +138,7 @@
             }
             
             if($id_us !="" && $id_juego !="") { //se comprueba que existe el usuario y el juego
+                
                 try {
                     //se comprueba si el usuario ya ha votado en esa categoria
                     include "../modelo/c_votacion.php";

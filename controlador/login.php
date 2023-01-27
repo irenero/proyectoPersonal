@@ -1,8 +1,17 @@
 <?php
+/**
+ * archivo que unifica la vista y el modelo del login
+ * 
+ * primero se incluye el html y despues el modelo que se conecta a la base de datos cuando el usuario
+ * introduce los datos para logearse para comprobar que el usuario con esos datos existe en la base de datos
+ */
     include "../vista/v_login.html";
     include "../modelo/m_login.php";
 
-    //se compueba si las variables de los errores continen valor y si es asi se muestran
+    /**
+     * se recoge en una variable de sesion los mensajes que se generan en el modelo para mostarlos en la vista,
+     * primero se comprueba si la variable existe y no es nula y si es asi se muestra en el html
+     */
     if(isset($_SESSION['nombreErr'])){
         echo $_SESSION['nombreErr'];
     }

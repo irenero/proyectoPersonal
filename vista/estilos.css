@@ -1,0 +1,54 @@
+body {
+    margin:0;
+    background-color : lightgrey;
+}
+header {
+    height : 50px;
+    width : 100%;
+    background-color : black;
+}
+header>a {
+    position: relative;
+    top : 14px;
+    margin-right : 20px;
+    color : lightgrey;
+}
+header > a:first-of-type {
+    margin-left : 75%; 
+}
+header+img {
+    width : 100%;
+}
+p>a {
+    color:red;
+}
+h2 {
+    text-align:center;
+}
+h1+h2 {
+    text-align:left;
+}
+h2+img{
+    width:60%;
+    display:block;
+    margin:auto;
+}
+img {
+    width:80%;
+    display:block;
+    margin:auto; 
+}
+h1, h2, p {
+    margin-left: 20px
+}
+div {
+    color:white;
+    text-align: center;
+}
+#votar {
+    text-align : center;
+}
+a img {
+    width:50%;
+}
+

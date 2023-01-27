@@ -1,4 +1,10 @@
 <?php 
+/**
+ * archivo m_registro el cual se encarga de recibir los datos de nombre, contraseña y email del formulario de registro,
+ * y se comprueba mediante la clase usuario si ese usuario con los datos introducidos existe en la base de datos y
+ * si es asi se crea el usuario añadiendolo a la base de datos, si no existe el usuario o ocurre algun error al introducir los datos
+ * se le informa al usuario mediante mensajes
+ */
     session_start();
 
     $nombre = $passw = $passw2 = $email = "";
